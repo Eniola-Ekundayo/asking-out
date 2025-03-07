@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* First Page */
+.black-bg {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Second Page */
+.romantic-bg {
+    background-color: white;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Third Page */
+.love-page {
+    background-color: white;
+}
+
+.love-img {
+    width: 200px;
+    border-radius: 10px;
+}

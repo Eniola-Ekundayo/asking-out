@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Girlfriend ❤️</title>
+
+<style>
+
+/* ===== THEME ===== */
+:root{
+  --mainColor:#f17e7e;
+}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',cursive;
+  overflow-x:hidden;
+  background:black;
+  color:white;
+}
+
+/* ===== FRONT PAGE ===== */
+#front{
+  height:100vh;
+  position:relative;
+  background:url("couple-silhouette.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+#front::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+}
+
+/* BRIGHT TEXT */
+.frontContent{
+  position:relative;
+  z-index:2;
+}
+
+.frontContent h1{
+  font-family:"Brush Script MT",cursive;
+  font-size:3rem;
+  text-shadow:0 0 20px #fff, 0 0 40px var(--mainColor);
+}
+
+.frontContent h2{
+  font-size:1.5rem;
+  text-shadow:0 0 15px #fff;
+}
+
+button{
+  font-size:18px;
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+#yesBtn{
+  background:white;
+  color:var(--mainColor);
+}
+
+#noBtn{
+  background:#444;
+  color:white;
+}
+
+button:hover{transform:scale(1.1);}
+
+/* ===== RING ===== */
+.ring{
+  position:fixed;
+  font-size:70px;
+  animation:ringPop 2s ease forwards;
+  pointer-events:none;
+}
+
+@keyframes ringPop{
+  0%{transform:scale(0); opacity:0;}
+  50%{transform:scale(1.5); opacity:1;}
+  100%{transform:scale(1); opacity:0;}
+}
+
+/* ===== MAIN SITE ===== */
+#mainSite{
+  display:none;
+  min-height:100vh;
+  position:relative;
+  background:url("couple-silhouette.jpg") center/cover no-repeat;
+}
+
+#mainSite::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+}
+
+header{
+  background:var(--mainColor);
+  padding:12px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  display:none;
+  padding:30px 20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.active{
+  display:block;
+}
+
+.card{
+  background:rgba(241,126,126,0.9);
+  padding:25px;
+  border-radius:20px;
+  margin:20px auto;
+  max-width:500px;
+}
+
+/* ===== LOVE LETTER CARD ===== */
+.cardScene{
+  perspective:1800px;
+  display:flex;
+  justify-content:center;
+  margin-top:40px;
+}
+
+.realCard{
+  width:90%;
+  max-width:350px;
+  height:230px;
+  position:relative;
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+
+.cardInside{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:white;
+  color:var(--mainColor);
+  border-radius:10px;
+  padding:20px;
+  overflow-y:auto;
+  font-family:Georgia,serif;
+  line-height:1.6;
+  box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+
+
+.coverDesign{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-family:"Brush Script MT",cursive;
+  font-size: 1.2rem;
+}
+
+/* ===== FLOATING HEARTS ===== */
+.heart{
+  position:fixed;
+  bottom:-50px;
+  animation:floatUp linear infinite;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* ===== PETALS ===== */
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+  .frontContent h1{font-size:2.3rem;}
+  .frontContent h2{font-size:1.2rem;}
+  button{font-size:16px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="ride-for-me.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FRONT PAGE -->
+<div id="front">
+  <div class="frontContent">
+    <h1>Ayobami❤️</h1>
+    <h2>Will you be my girlfriend?</h2>
+    <button id="yesBtn" onclick="sayYes()">Yes 💝</button>
+    <button id="noBtn" onclick="removeNo()">No 😔</button>
+  </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="mainSite">
+
+<header>
+<nav>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('about')">About Her</a>
+<a onclick="showSection('letter')">Love Note</a>
+<a onclick="showSection('message')">Message Me</a>
+</nav>
+</header>
+
+<div id="home" class="section active">
+  <div class="card">
+    <h1>Welcome ❤️</h1>
+    <p>I'm Glad you said yes.</p>
+    <P>Save today's date, it's ours now❤️</P>
+  </div>
+</div>
+
+<div id="about" class="section">
+  <div class="card">Full Name: Oluwole Ayobami Deborah
+    <p>AKA Mine😗❤️</p> 
+  </div>
+  <div class="card">Birthday: 5th August🎂</div>
+  <div class="card">Features;
+    <li> Extremely Pretty😍</li>
+    <li> Massive glowing forehead😂</li>
+    <li> Pretty Eyes</li>
+    <li> Perfect Body🫣</li>
+  </div>
+  <div class="card">Characteristics;
+    <li>Firstborn Daughter and granddaughter😂❤️</li>
+    <li>Friendly, passionate lover, kindhearted.</li>
+    <li>Cranky when lacking food and sleep😂</li>
+    <li>Little bully😗</li>
+    <li>Consumer😂</li>
+    <li>Overthinker</li>
+    <li>Independent...e.t.c</li>
+  </div>
+  <div class="card">Love Languages❤️
+    <li>Physical touch</li>
+    <li>Quality time</li>
+    <li>Words of affirmation</li>
+    <li>Acts of service</li>
+  </div>
+  <div class="card">Favourite Moment with you❤️
+    <p>Every single moment feels special with you.</p>
+  </div>
+</div>
+
+<div id="letter" class="section">
+  <div class="cardScene">
+    <div id="realCard" class="realCard" onclick="openCard()">
+      <div class="cardCover">
+        <div class="coverDesign">
+          🌹 💌 🌹
+          <h2>Tap to read</h2>
+        </div>
+      </div>
+      <div class="cardInside">
+        <p id="typedText"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="message" class="section">
+  <div class="card">
+    <h1>Message Me💝</h1>
+    <p>Text me when you're done. I know you'll be smiling❤️</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+
+/* YES BUTTON */
+function sayYes(){
+ document.getElementById("front").style.display="none";
+ document.getElementById("mainSite").style.display="block";
+ document.getElementById("music").play();
+ createRing();
+}
+
+/* RING */
+function createRing(){
+ const ring=document.createElement("div");
+ ring.className="ring";
+ ring.innerHTML="💍";
+ ring.style.top="40%";
+ ring.style.left="45%";
+ document.body.appendChild(ring);
+ setTimeout(()=>ring.remove(),2000);
+}
+
+/* NO BUTTON */
+function removeNo(){
+ document.getElementById("noBtn").style.display="none";
+}
+
+/* NAVIGATION */
+function showSection(id){
+ document.querySelectorAll(".section")
+ .forEach(s=>s.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+}
+
+/* HEARTS */
+function createHeart(){
+ const heart=document.createElement("div");
+ heart.className="heart";
+ heart.innerHTML="❤️";
+ heart.style.left=Math.random()*100+"vw";
+ heart.style.fontSize=(20+Math.random()*20)+"px";
+ heart.style.animationDuration=(3+Math.random()*3)+"s";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,400);
+
+/* PETALS */
+function createPetal(){
+ const petal=document.createElement("div");
+ petal.innerHTML="🌸";
+ petal.style.position="fixed";
+ petal.style.top="-20px";
+ petal.style.left=Math.random()*100+"vw";
+ petal.style.fontSize="18px";
+ petal.style.animation="fall 6s linear forwards";
+ document.body.appendChild(petal);
+ setTimeout(()=>petal.remove(),6000);
+}
+setInterval(createPetal,1500);
+
+/* LOVE LETTER */
+const message =
+"Dear Ayobami ❤️,\n" +
+"I still can't believe we're here now, securing our anniversary date. \n" +
+"Alot of things in-between but nothing was able to silence what my heart feels for you.\n" +
+"You don't just make me happy - you make me better.\n" +
+"There's soo much to say that words can't express but at any chance I get, i'll always show how much you mean to me and how much I love you.\n"+
+"I love you soo much❤️\n" +
+"Forever yours,\n-Eniola❤️";
+
+let i=0;
+let opened=false;
+
+function typeText(){
+ if(i < message.length){
+  let char = message.charAt(i);
+  if(char === "\n"){
+    document.getElementById("typedText").innerHTML += "<br><br>";
+  } else {
+    document.getElementById("typedText").innerHTML += char;
+  }
+  i++;
+  setTimeout(typeText,50);
+ }
+}
+
+function openCard(){
+ if(opened) return;
+ opened=true;
+ document.getElementById("realCard").classList.add("openCard");
+ setTimeout(typeText,1200);
+}
+
+</script>
+
+</body>
+</html>
